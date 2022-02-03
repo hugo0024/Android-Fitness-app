@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Sweaty</string>
+    <string name="logo_name">Capri</string>
+    <string name="slogan_name">Get fit today</string>
+    <string name="powered_by">Hugo Lee</string>
+
+    <string name="first_title">Start a workout</string>
+    <string name="second_title">Save it</string>
+    <string name="third_title">Track your workout progress at any time</string>
+
+    <string name="first_des">Track your workout progress at any time timetimetimetimetime </string>
+    <string name="second_des">Track your workout progress at any time s at any s at any s at any s at any s at any </string>
+    <string name="third_des">Track your workout progress at any time k your workout progk your workout progk yourrkout progk your workout prog</string>
+
+    <string name="skip_button">Skip</string>
+    <string name="next_button">Next</string>
+    <string name="start_button">Lets Get Started</string>
+
+
+    <string name="search_text">Search...</string>
+
+    <string name="running">Running</string>
+    <string name="cycling">Cycling</string>
+    <string name="gym">Gym</string>
+    <string name="more">More</string>
+
+    <string name="login">Login</string>
+    <string name="signUp">Sign Up</string>
+    <string name="help">Help?</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="rememberMe">Remember Me</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="create_acc">Create Account</string>
+    <string name="login_heading">Save\nYour Progress</string>
+    <string name="login_dec">Simply sign in or register to save all your progress and access all features</string>
+    <string name="dont_have_acc">Don\'t have an account?</string>
+
+
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="gender">Choose Gender</string>
+    <string name="age">Select your age</string>
+    <string name="phone">Phone number</string>
+    <string name="already_have_acc">Already have an account?</string>
+
+
+    <string name="code">Code</string>
+    <string name="code_text">Phone\nVerification</string>
+    <string name="code_dec">Please enter your one time password</string>
+
+    <string name="forgetPassword">Forget Password</string>
+    <string name="forgetPassword_dec">Please enter your phone number</string>
+    <string name="continue_">Continue</string>
+
+    <string name="resetPassword">Reset\nPassword</string>
+    <string name="selection">How you want to reset your password?</string>
+    <string name="newPassword">New\nPassword</string>
+    <string name="verified">Successfully verified\nPlease enter your new password</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="PasswordUpdated">Password\nUpdated</string>
+    <string name="PasswordUpdated_dec">Your password has been successfully updated, please sign in using your new password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

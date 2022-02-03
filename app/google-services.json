@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "780220218443",
+    "firebase_url": "https://sweaty-f15f9-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "sweaty-f15f9",
+    "storage_bucket": "sweaty-f15f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780220218443:android:5ff73a36a9e4a80d2521ce",
+        "android_client_info": {
+          "package_name": "com.hohimlee.mpa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780220218443-9g605e849o8ica904vvsri0m0fdoqqbt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hohimlee.mpa",
+            "certificate_hash": "be918795c51edabaabd9c58d043933259048d49d"
+          }
+        },
+        {
+          "client_id": "780220218443-nhgqem79c548qfh13npcksaqtaoasp28.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA3tp7BPpzBzYDz6-QVB9-u3gKg8RbcFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780220218443-nhgqem79c548qfh13npcksaqtaoasp28.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

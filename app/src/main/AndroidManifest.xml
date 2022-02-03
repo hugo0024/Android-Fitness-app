@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hohimlee.mpa">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainScreen.MainScreen"></activity>
+        <activity android:name=".ProgressBarDialog" />
+        <activity android:name=".LoginAndSignUp.ResetPassword.ResetPassword_EmailScreen" />
+        <activity android:name=".LoginAndSignUp.ResetPassword.ResetPassword_OTP_Screen" />
+        <activity android:name=".LoginAndSignUp.Login.LoginOTP_screen" />
+        <activity android:name=".LoginAndSignUp.SignUp.SignUpPasswordScreen" />
+        <activity android:name=".LoginAndSignUp.ResetPassword.SuccessScreen" />
+        <activity android:name=".LoginAndSignUp.ResetPassword.NewPasswordScreen" />
+        <activity android:name=".LoginAndSignUp.ResetPassword.ResetPassword_selection_Screen" />
+        <activity android:name=".LoginAndSignUp.ResetPassword.ForgetPassword" />
+        <activity android:name=".LoginAndSignUp.phoneOTP" />
+        <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen3" />
+        <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen_2" />
+        <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen" />
+        <activity android:name=".LoginAndSignUp.Login.LoginScreen" />
+        <activity android:name=".LoginAndSignUp.LoginSignUp" />
+        <activity android:name=".MainScreen.Running" />
+        <activity android:name=".SplashScreen.introduction" />
+        <activity android:name=".MainScreen.Dashboard" />
+        <activity android:name=".SplashScreen.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
