@@ -1,17 +1,27 @@
 package com.hohimlee.mpa.MainScreen;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.hohimlee.mpa.LoginAndSignUp.LoginSignUp;
 import com.hohimlee.mpa.R;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainScreen extends AppCompatActivity {
 
     ChipNavigationBar chipNavigationBar;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,4 +60,15 @@ public class MainScreen extends AppCompatActivity {
         return;
     }
 
+    public void LogOut(View view){
+        AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Intent intent = new Intent(MainScreen.this, LoginSignUp.class);
+                Toast.makeText(MainScreen.this, "Logged out", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
 }

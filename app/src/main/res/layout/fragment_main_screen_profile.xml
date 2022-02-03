@@ -6,11 +6,23 @@
     tools:context=".MainScreen.MainScreenProfile"
     android:background="@color/card3">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Profile"
-        android:gravity="center"/>
+        android:padding="30dp">
+
+        <Button
+            android:id="@+id/logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/rounded_button"
+            android:text="Logout"
+            android:textColor="@color/black"
+            android:onClick="LogOut"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
 
 </FrameLayout>
