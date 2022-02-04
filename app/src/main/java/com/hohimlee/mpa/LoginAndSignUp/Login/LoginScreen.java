@@ -23,6 +23,8 @@ import com.hohimlee.mpa.LoginAndSignUp.SignUp.SignUpScreen;
 import com.hohimlee.mpa.R;
 import com.hohimlee.mpa.SplashScreen.introduction;
 
+import java.security.MessageDigest;
+
 public class LoginScreen extends AppCompatActivity {
 
     CountryCodePicker countryCodePicker;
@@ -35,7 +37,6 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login_screen);
-
         countryCodePicker = findViewById(R.id.login_countryCodePicker);
         phoneNumber = findViewById(R.id.login_phoneNumber);
         password = findViewById(R.id.login_password);
@@ -62,7 +63,8 @@ public class LoginScreen extends AppCompatActivity {
         CustomProgressBar progressBar = new CustomProgressBar(LoginScreen.this);
         progressBar.show();
         String phoneNumberS = phoneNumber.getEditText().getText().toString().trim();
-        String passwordS = password.getEditText().getText().toString().trim();
+        String oldPassword = password.getEditText().getText().toString().trim();
+        String passwordS = sha256(oldPassword);
         if (phoneNumberS.charAt(0) == '0') {
             phoneNumberS = phoneNumberS.substring(1);
         }
@@ -112,7 +114,23 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
+    public static String sha256(String base) {
+        try{
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(base.getBytes("UTF-8"));
+            StringBuffer hexString = new StringBuffer();
 
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+    }
 
     private boolean validatePhoneNumber() {
         String val = phoneNumber.getEditText().getText().toString().trim();

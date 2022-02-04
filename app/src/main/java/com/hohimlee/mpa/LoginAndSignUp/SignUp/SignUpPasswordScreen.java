@@ -17,6 +17,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.R;
 
+import java.security.MessageDigest;
+
 public class SignUpPasswordScreen extends AppCompatActivity {
 
     TextInputLayout password;
@@ -49,14 +51,15 @@ public class SignUpPasswordScreen extends AppCompatActivity {
         String firstNameS = getIntent().getStringExtra("FirstName");
         String lastNameS = getIntent().getStringExtra("lastName");
         String emailS = getIntent().getStringExtra("email");
-        String passwordS = password.getEditText().getText().toString().trim();
+
+
+        String oldPassword = password.getEditText().getText().toString().trim();
+        String passwordS = sha256(oldPassword);
 
         intent.putExtra("FirstName", firstNameS);
         intent.putExtra("lastName", lastNameS);
         intent.putExtra("email", emailS);
         intent.putExtra("password", passwordS);
-
-
         startActivity(intent);
 
     }
@@ -77,6 +80,23 @@ public class SignUpPasswordScreen extends AppCompatActivity {
         });
     }
 
+    public static String sha256(String base) {
+        try{
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(base.getBytes("UTF-8"));
+            StringBuffer hexString = new StringBuffer();
+
+            for (int i = 0; i < hash.length; i++) {
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+
+            return hexString.toString();
+        } catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+    }
 
 
     private boolean validatePassword() {
