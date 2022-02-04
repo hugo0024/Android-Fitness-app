@@ -18,7 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.hohimlee.mpa.Helper.CustomProgressBar;
-import com.hohimlee.mpa.LoginAndSignUp.LoginSignUp;
+import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.R;
 
 public class ForgetPassword extends AppCompatActivity {
@@ -106,14 +106,14 @@ public class ForgetPassword extends AppCompatActivity {
     }
 
     public void back(View view){
-        Intent intent = new Intent(ForgetPassword.this , LoginSignUp.class);
+        Intent intent = new Intent(ForgetPassword.this , LoginScreen.class);
         startActivity(intent);
         this.finish();
     }
 
     public void onBackPressed()
     {
-        Intent intent = new Intent(ForgetPassword.this , LoginSignUp.class);
+        Intent intent = new Intent(ForgetPassword.this , LoginScreen.class);
         startActivity(intent);
         this.finish();
     }

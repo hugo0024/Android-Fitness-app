@@ -19,7 +19,6 @@
             android:background="@drawable/rounded_button"
             android:text="Logout"
             android:textColor="@color/black"
-            android:onClick="LogOut"
             android:layout_centerInParent="true"/>
 
     </RelativeLayout>

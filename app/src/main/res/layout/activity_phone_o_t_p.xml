@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginAndSignUp.phoneOTP"
+    tools:context=".LoginAndSignUp.SignUp.phoneOTP"
     android:background="@color/lightWhite">
 
     <LinearLayout
@@ -14,39 +14,38 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:padding="6dp"
             android:src="@drawable/cancel_icon"
             android:onClick="exit"/>
 
         <ImageView
-            android:layout_width="162dp"
-            android:layout_height="226dp"
+            android:layout_width="95dp"
+            android:layout_height="136dp"
             android:layout_gravity="center"
             android:src="@drawable/sms_icon"
-            android:layout_marginLeft="12dp"/>
+            android:layout_marginLeft="3dp"/>
 
         <TextView
             android:id="@+id/title_0123"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/code_text"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textColor="@color/black"
-            android:fontFamily="@font/muli_black"
-            android:textAllCaps="true"
+            android:fontFamily="@font/muli_bold"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:includeFontPadding="false"/>
+            android:includeFontPadding="false"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/code_dec"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="30dp"
+            android:textSize="13sp"
+            android:layout_marginTop="3dp"
             android:fontFamily="@font/muli"
             android:textAllCaps="false"
             android:layout_gravity="center"
@@ -61,7 +60,7 @@
             app:itemWidth="40dp"
             android:height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             app:lineColor="@color/black"
             android:itemBackground="@color/white"
             style="@style/PinWidget.PinView"
@@ -76,7 +75,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:text="Verify Code"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:onClick="nextScreen"/>
 
     </LinearLayout>

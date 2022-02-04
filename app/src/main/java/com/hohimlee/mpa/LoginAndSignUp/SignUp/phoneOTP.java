@@ -1,4 +1,4 @@
-package com.hohimlee.mpa.LoginAndSignUp;
+package com.hohimlee.mpa.LoginAndSignUp.SignUp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +23,7 @@ import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.MainScreen.MainScreen;
 import com.hohimlee.mpa.R;
 import com.hohimlee.mpa.Helper.UserDataHandler;
@@ -140,7 +141,7 @@ public class phoneOTP extends AppCompatActivity {
 
 
     public void exit(View view){
-        Intent intent = new Intent(getApplicationContext(), LoginSignUp.class);
+        Intent intent = new Intent(getApplicationContext(), LoginScreen.class);
         startActivity(intent);
         this.finish();
     }

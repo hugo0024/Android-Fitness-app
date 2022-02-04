@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hohimlee.mpa.LoginAndSignUp.LoginSignUp;
+import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.R;
 import com.hohimlee.mpa.Helper.SliderAdapter;
 
@@ -54,7 +54,7 @@ public class introduction extends AppCompatActivity {
     }
 
     public void start(View view){
-        startActivity(new Intent(getApplicationContext(), LoginSignUp.class));
+        startActivity(new Intent(getApplicationContext(), LoginScreen.class));
     }
 
     public  void next(View view){

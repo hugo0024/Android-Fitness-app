@@ -12,7 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hohimlee.mpa.LoginAndSignUp.LoginSignUp;
+import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.R;
 
 public class SplashScreen extends AppCompatActivity {
@@ -58,7 +58,7 @@ public class SplashScreen extends AppCompatActivity {
                     finish();
                 }
                 else {
-                    Intent intent = new Intent(SplashScreen.this, LoginSignUp.class);
+                    Intent intent = new Intent(SplashScreen.this, LoginScreen.class);
                     startActivity(intent);
                     finish();
                 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginAndSignUp.SignUp.SignUpScreen3"
-    android:background="@color/colorAccent"
+    android:background="@color/lightWhite"
     android:padding="30dp"
     android:transitionName="transition_signUp"
     android:clipChildren="false"
@@ -23,26 +23,38 @@
             android:padding="5dp"
             android:rotation="180"
             android:src="@drawable/next_icon"
-            android:transitionName="transition_back_button"
             android:onClick="back"/>
 
         <TextView
             android:id="@+id/signUp_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/muli_black"
+            android:fontFamily="@font/muli_bold"
             android:text="@string/signUp"
-            android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="40sp"
-            android:transitionName="transition_title"/>
+            android:textSize="26sp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/login_welcome"
+            android:id="@+id/login_dec"
+            android:layout_width="300dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/muli"
+            android:text="Please fill in the information below"
+            android:textSize="13sp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="50dp">
+>
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/countryCodePicker"
@@ -50,6 +62,7 @@
                 android:layout_height="wrap_content"
                 app:ccp_autoDetectCountry="true"
                 app:ccp_showFlag="true"
+                android:visibility="invisible"
                 app:ccp_showNameCode="true"
                 app:ccp_showFullName="true"
                 android:background="@drawable/border"/>
@@ -64,7 +77,11 @@
                 app:boxStrokeColor="@color/black"
                 app:endIconMode="clear_text"
                 app:boxStrokeWidth="2dp"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="5dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopStart="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

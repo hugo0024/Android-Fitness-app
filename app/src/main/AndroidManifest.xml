@@ -19,7 +19,7 @@
         <activity android:name=".LoginAndSignUp.ResetPassword.NewPasswordScreen" />
         <activity android:name=".LoginAndSignUp.ResetPassword.ResetPassword_selection_Screen" />
         <activity android:name=".LoginAndSignUp.ResetPassword.ForgetPassword" />
-        <activity android:name=".LoginAndSignUp.phoneOTP" />
+        <activity android:name=".LoginAndSignUp.SignUp.phoneOTP" />
         <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen3" />
         <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen_2" />
         <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen" />

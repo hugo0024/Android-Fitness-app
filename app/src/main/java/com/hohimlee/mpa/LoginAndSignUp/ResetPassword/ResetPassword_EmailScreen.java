@@ -9,7 +9,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.hohimlee.mpa.LoginAndSignUp.LoginSignUp;
+import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.R;
 
 public class ResetPassword_EmailScreen extends AppCompatActivity {
@@ -45,14 +45,14 @@ public class ResetPassword_EmailScreen extends AppCompatActivity {
 
 
     public void back(View view){
-        Intent intent = new Intent(ResetPassword_EmailScreen.this, LoginSignUp.class);
+        Intent intent = new Intent(ResetPassword_EmailScreen.this, LoginScreen.class);
         startActivity(intent);
         this.finish();
     }
 
     public void onBackPressed()
     {
-        Intent intent = new Intent(ResetPassword_EmailScreen.this, LoginSignUp.class);
+        Intent intent = new Intent(ResetPassword_EmailScreen.this, LoginScreen.class);
         startActivity(intent);
         this.finish();
     }

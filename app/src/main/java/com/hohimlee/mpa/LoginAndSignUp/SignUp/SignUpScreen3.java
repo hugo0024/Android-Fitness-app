@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.hbb20.CountryCodePicker;
 import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
-import com.hohimlee.mpa.LoginAndSignUp.phoneOTP;
 import com.hohimlee.mpa.R;
 
 public class SignUpScreen3 extends AppCompatActivity {

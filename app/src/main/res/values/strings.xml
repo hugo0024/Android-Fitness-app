@@ -30,7 +30,8 @@
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="rememberMe">Remember Me</string>
-    <string name="forget_password">Forget Password</string>
+    <string name="forget_password"><u>Forget Password</u></string>
+    <string name="forget_password2">Forget Password</string>
     <string name="create_acc">Create Account</string>
     <string name="login_heading">Save\nYour Progress</string>
     <string name="login_dec">Simply sign in or register to save all your progress and access all features</string>
@@ -46,7 +47,7 @@
 
 
     <string name="code">Code</string>
-    <string name="code_text">Phone\nVerification</string>
+    <string name="code_text">Phone Verification</string>
     <string name="code_dec">Please enter your one time password</string>
 
     <string name="forgetPassword">Forget Password</string>
@@ -58,7 +59,7 @@
     <string name="newPassword">New\nPassword</string>
     <string name="verified">Successfully verified\nPlease enter your new password</string>
     <string name="confirmPassword">Confirm Password</string>
-    <string name="PasswordUpdated">Password\nUpdated</string>
+    <string name="PasswordUpdated">Password Updated</string>
     <string name="PasswordUpdated_dec">Your password has been successfully updated, please sign in using your new password</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

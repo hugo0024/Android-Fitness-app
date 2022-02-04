@@ -21,6 +21,7 @@ import com.hohimlee.mpa.Helper.CustomProgressBar;
 import com.hohimlee.mpa.LoginAndSignUp.ResetPassword.ForgetPassword;
 import com.hohimlee.mpa.LoginAndSignUp.SignUp.SignUpScreen;
 import com.hohimlee.mpa.R;
+import com.hohimlee.mpa.SplashScreen.introduction;
 
 public class LoginScreen extends AppCompatActivity {
 
@@ -41,8 +42,9 @@ public class LoginScreen extends AppCompatActivity {
         CustomProgressBar progressBar = new CustomProgressBar(LoginScreen.this);
     }
 
-    private void back(View view) {
-        super.onBackPressed();
+    @Override
+    public void onBackPressed() {
+        return;
     }
 
     public void goToSignUp(View view) {
@@ -130,6 +132,12 @@ public class LoginScreen extends AppCompatActivity {
         Intent intent = new Intent(LoginScreen.this, ForgetPassword.class);
         startActivity(intent);
 
+    }
+
+    public void back(View view) {
+        Intent intent = new Intent(LoginScreen.this, introduction.class);
+        startActivity(intent);
+        this.finish();
     }
 
 }

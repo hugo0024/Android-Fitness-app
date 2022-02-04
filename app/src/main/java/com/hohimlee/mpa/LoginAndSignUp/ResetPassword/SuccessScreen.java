@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
-import com.hohimlee.mpa.LoginAndSignUp.LoginSignUp;
 import com.hohimlee.mpa.R;
 
 public class SuccessScreen extends AppCompatActivity {
@@ -30,14 +29,14 @@ public class SuccessScreen extends AppCompatActivity {
 
 
     public void back(View view){
-        Intent intent = new Intent(SuccessScreen.this, LoginSignUp.class);
+        Intent intent = new Intent(SuccessScreen.this, LoginScreen.class);
         startActivity(intent);
         this.finish();
     }
 
     public void onBackPressed()
     {
-        Intent intent = new Intent(SuccessScreen.this, LoginSignUp.class);
+        Intent intent = new Intent(SuccessScreen.this, LoginScreen.class);
         startActivity(intent);
         this.finish();
     }

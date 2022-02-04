@@ -9,62 +9,74 @@
     android:padding="30dp"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/login_back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:rotation="180"
-        android:src="@drawable/next_icon"
-        android:onClick="back"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/PasswordUpdated"
-            android:textSize="40sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/muli_black"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:textAllCaps="true" />
-
         <ImageView
-            android:layout_width="134dp"
-            android:layout_height="134dp"
-            android:layout_gravity="center"
-            android:src="@drawable/confirmation_icon"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
+            android:id="@+id/login_back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/PasswordUpdated_dec"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/muli"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
+            android:padding="5dp"
+            android:rotation="180"
+            android:src="@drawable/next_icon"
+            android:onClick="back"/>
 
-        <Button
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/rounded_button"
-            android:text="@string/login"
-            android:textColor="@color/black"
-            android:onClick="goToLogin"/>
+            android:layout_centerInParent="true">
 
 
+            <ImageView
+                android:layout_below="@+id/success_dec"
+                android:id="@+id/success_image"
+                android:layout_width="95dp"
+                android:layout_height="136dp"
+                android:layout_gravity="center"
+                android:src="@drawable/confirmation_icon"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/success_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/muli_bold"
+                android:text="@string/PasswordUpdated"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_below="@+id/success_title"
+                android:id="@+id/success_dec"
+                android:layout_marginTop="3dp"
+                android:layout_width="300dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/muli"
+                android:text="@string/PasswordUpdated_dec"
+                android:textSize="13sp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:layout_below="@id/success_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/rounded_button"
+                android:text="@string/login"
+                android:textColor="@color/black"
+                android:onClick="goToLogin"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 </LinearLayout>
