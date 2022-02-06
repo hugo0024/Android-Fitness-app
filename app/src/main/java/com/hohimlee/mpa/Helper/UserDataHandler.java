@@ -16,6 +16,7 @@ public class UserDataHandler {
         this.phoneNumber = phoneNumber;
     }
 
+
     public String getFirstName() {
         return firstName;
     }
@@ -64,11 +65,9 @@ public class UserDataHandler {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+    public String getPhoneNumber(){return phoneNumber;};
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+    public void setPhoneNumber(String phoneNumber){this.phoneNumber = phoneNumber;}
+
+
 }

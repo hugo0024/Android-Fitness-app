@@ -14,7 +14,9 @@ import com.chaos.view.PinView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,10 +38,7 @@ public class phoneOTP extends AppCompatActivity {
     String systemCode;
     TextView title;
     String firstNameS,lastNameS,emailS,passwordS,genderS,dateS,phoneNumberS,fullPhoneNumberS;
-
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +107,11 @@ public class phoneOTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             storeData();
+
+                            firebaseAuth.createUserWithEmailAndPassword(emailS, passwordS);
+                            AuthCredential credential = EmailAuthProvider.getCredential(emailS, passwordS);
+                            firebaseAuth.getCurrentUser().linkWithCredential(credential);
+
                             Toast.makeText(phoneOTP.this, "Completed", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), MainScreen.class);
                             startActivity(intent);
@@ -124,11 +128,10 @@ public class phoneOTP extends AppCompatActivity {
 
     private void storeData() {
         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = rootNode.getReference("Users");
         UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, emailS, passwordS, genderS, dateS, fullPhoneNumberS);
-        reference.child(fullPhoneNumberS).setValue(addNewUser);
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        reference.child(user.getUid()).setValue(addNewUser);
         user.updateEmail(emailS);
     }
 

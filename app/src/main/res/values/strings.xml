@@ -1,4 +1,6 @@
 <resources>
+    <string name="facebook_app_id">406472507944871</string> <string name="fb_login_protocol_scheme">fb406472507944871</string>
+
     <string name="app_name">Sweaty</string>
     <string name="logo_name">Capri</string>
     <string name="slogan_name">Get fit today</string>

@@ -1,5 +1,6 @@
 package com.hohimlee.mpa.LoginAndSignUp.SignUp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,8 +9,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.R;
@@ -31,8 +38,6 @@ public class SignUpScreen3 extends AppCompatActivity {
         title = findViewById(R.id.signUp_title);
         countryCodePicker = findViewById(R.id.countryCodePicker);
         phoneNumber = findViewById(R.id.phoneNumber);
-
-
     }
 
     public void otpScreen(View view){
@@ -54,18 +59,40 @@ public class SignUpScreen3 extends AppCompatActivity {
         }
         String fullPhoneNumberS ="+"+countryCodePicker.getFullNumber()+phoneNumberS;
 
-        Intent intent  = new Intent(getApplicationContext(), phoneOTP.class);
+        FirebaseDatabase firebase = FirebaseDatabase.getInstance();
+        DatabaseReference userRef  = firebase.getReference("Users");
+        String finalPhoneNumberS = phoneNumberS;
 
-        intent.putExtra("firstName", firstNameS);
-        intent.putExtra("lastName", lastNameS);
-        intent.putExtra("email", emailS);
-        intent.putExtra("password", passwordS);
-        intent.putExtra("gender", genderS);
-        intent.putExtra("date", dateS);
-        intent.putExtra("phoneNumber", phoneNumberS);
-        intent.putExtra("fullPhoneNumber", fullPhoneNumberS);
+        userRef.orderByChild("phoneNumber").equalTo(fullPhoneNumberS).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Toast.makeText(SignUpScreen3.this, "Phone number already exits", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Intent intent  = new Intent(getApplicationContext(), phoneOTP.class);
 
-        startActivity(intent);
+                    intent.putExtra("firstName", firstNameS);
+                    intent.putExtra("lastName", lastNameS);
+                    intent.putExtra("email", emailS);
+                    intent.putExtra("password", passwordS);
+                    intent.putExtra("gender", genderS);
+                    intent.putExtra("date", dateS);
+                    intent.putExtra("phoneNumber", finalPhoneNumberS);
+                    intent.putExtra("fullPhoneNumber", fullPhoneNumberS);
+
+                    startActivity(intent);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SignUpScreen3.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
     }
 
     private boolean validatePhoneNumber() {

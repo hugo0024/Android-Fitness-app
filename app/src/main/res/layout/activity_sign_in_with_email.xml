@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".LoginAndSignUp.Login.SignInWithEmail"
     android:background="@color/lightWhite"
     android:padding="30dp"
-    tools:context=".LoginAndSignUp.Login.LoginScreen"
-    android:transitionName="transition_login"
     android:fillViewport="true">
 
     <RelativeLayout
@@ -52,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/muli"
-            android:text="Sign in with your phone"
+            android:text="Sign in with Email and Password"
             android:textSize="13sp"
             android:layout_centerInParent="true" />
 
@@ -66,14 +65,15 @@
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/login_countryCodePicker"
-                android:layout_width="1dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:ccp_autoDetectCountry="true"
                 app:ccp_showFlag="true"
                 app:ccp_showNameCode="false"
                 app:ccp_showPhoneCode="false"
                 app:ccp_showFullName="false"
                 android:visibility="invisible">
+
 
             </com.hbb20.CountryCodePicker>
 
@@ -83,16 +83,16 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/login_countryCodePicker"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="@string/phone"
+                android:hint="Email"
                 app:hintTextColor="@color/black"
                 app:boxStrokeColor="@color/black"
                 app:endIconMode="clear_text"
                 app:boxStrokeWidth="2dp"
+                android:layout_marginTop="5dp"
                 app:boxCornerRadiusBottomEnd="20dp"
                 app:boxCornerRadiusTopEnd="20dp"
                 app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                android:layout_marginTop="10dp">
+                app:boxCornerRadiusTopStart="20dp">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -100,18 +100,62 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/muli"
                     android:textColor="@color/black"
-                    android:inputType="phone"/>
+                    android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_phoneNumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="@string/password_hint"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:endIconMode="password_toggle"
+                app:boxStrokeWidth="2dp"
+                android:layout_marginTop="5dp"
+                app:boxCornerRadiusBottomEnd="20dp"
+                app:boxCornerRadiusTopEnd="20dp"
+                app:boxCornerRadiusBottomStart="20dp"
+                app:boxCornerRadiusTopStart="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/muli"
+                    android:textColor="@color/black"
+                    android:inputType="textPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/forgetpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password"
+                android:textAllCaps="false"
+                android:background="#00000000"
+                android:fontFamily="@font/muli"
+                android:textSize="13sp"
+                android:textColor="@android:color/tab_indicator_text"
+                android:layout_below="@id/login_password"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:onClick="gotToForgetPassword"
+                android:layout_marginTop="30dp"/>
 
 
             <Button
                 android:id="@+id/goTologinIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="100dp"
                 android:background="@drawable/rounded_button"
                 android:text="@string/login"
-                android:layout_below="@+id/login_phoneNumber"
+                android:layout_below="@+id/forgetpassword"
                 android:textColor="@color/black"
                 android:onClick="Login"/>
 
@@ -122,72 +166,9 @@
                 android:text="@string/dont_have_acc"
                 android:layout_below="@id/goTologinIn"
                 android:background="#00000000"
-                android:textColor="@android:color/tab_indicator_text"
                 android:layout_centerHorizontal="true"
                 android:textAllCaps="false"
-                android:onClick="goToSignUp"
-                android:layout_marginTop="10dp"/>
-
-
-
-            <View
-                android:layout_below="@+id/goTosignup"
-                android:id="@+id/line"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#808080"
-                android:layout_marginTop="100dp"/>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </RelativeLayout>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:onClick="googleSingIn"
-            android:id="@+id/emailLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/line"
-            android:layout_centerInParent="true"
-            android:src="@drawable/google_icon"
-            android:elevation="30dp"
-            android:backgroundTint="@color/white"
-            android:layout_marginTop="30dp"
-                app:borderWidth="0dp" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/facebookLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/facebook_icon"
-                android:elevation="30dp"
-                android:backgroundTint="@color/white"
-                app:borderWidth="0dp"
-                app:maxImageSize="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_below="@id/line"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@id/emailLogin"
-                android:onClick="SignInWithFacebook"/>
-
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/login2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:src="@drawable/email_icon_light"
-                android:elevation="30dp"
-                android:backgroundTint="@color/white"
-                app:borderWidth="0dp"
-                android:layout_marginTop="30dp"
-                android:layout_below="@id/line"
-                android:layout_marginRight="20dp"
-                android:layout_toLeftOf="@id/emailLogin"
-                android:onClick="gotToForgetPassword"/>
+                android:onClick="goToSignUp" />
 
         </RelativeLayout>
 

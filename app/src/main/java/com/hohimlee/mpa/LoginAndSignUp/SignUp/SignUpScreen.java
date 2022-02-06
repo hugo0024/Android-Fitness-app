@@ -1,5 +1,6 @@
 package com.hohimlee.mpa.LoginAndSignUp.SignUp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +10,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.hohimlee.mpa.LoginAndSignUp.Login.LoginOTP_screen;
 import com.hohimlee.mpa.LoginAndSignUp.Login.LoginScreen;
 import com.hohimlee.mpa.R;
 
@@ -50,10 +58,30 @@ public class SignUpScreen extends AppCompatActivity {
         String lastNameS = lastName.getEditText().getText().toString().trim();
         String emailS = email.getEditText().getText().toString().trim();
 
-        intent.putExtra("FirstName", firstNameS);
-        intent.putExtra("lastName", lastNameS);
-        intent.putExtra("email", emailS);
-        startActivity(intent);
+        FirebaseDatabase firebase = FirebaseDatabase.getInstance();
+        DatabaseReference userRef  = firebase.getReference("Users");
+        userRef.orderByChild("email").equalTo(emailS).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Toast.makeText(SignUpScreen.this, "Email already exits", Toast.LENGTH_SHORT).show();
+
+                }
+                else{
+                    intent.putExtra("FirstName", firstNameS);
+                    intent.putExtra("lastName", lastNameS);
+                    intent.putExtra("email", emailS);
+                    startActivity(intent);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SignUpScreen.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
     }
 
 

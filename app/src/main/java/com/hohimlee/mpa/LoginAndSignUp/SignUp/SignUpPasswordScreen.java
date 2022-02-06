@@ -53,8 +53,8 @@ public class SignUpPasswordScreen extends AppCompatActivity {
         String emailS = getIntent().getStringExtra("email");
 
 
-        String oldPassword = password.getEditText().getText().toString().trim();
-        String passwordS = sha256(oldPassword);
+        //String oldPassword = password.getEditText().getText().toString().trim();
+        String passwordS = password.getEditText().getText().toString().trim();
 
         intent.putExtra("FirstName", firstNameS);
         intent.putExtra("lastName", lastNameS);
@@ -80,7 +80,7 @@ public class SignUpPasswordScreen extends AppCompatActivity {
         });
     }
 
-    public static String sha256(String base) {
+/*    public static String sha256(String base) {
         try{
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(base.getBytes("UTF-8"));
@@ -96,7 +96,7 @@ public class SignUpPasswordScreen extends AppCompatActivity {
         } catch(Exception ex){
             throw new RuntimeException(ex);
         }
-    }
+    }*/
 
 
     private boolean validatePassword() {

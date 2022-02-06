@@ -84,6 +84,7 @@ public class ResetPassword_OTP_Screen extends AppCompatActivity {
     }
 
 
+
     public void nextScreen(View view){
         String code = pin.getText().toString();
         if(!code.isEmpty()){

@@ -6,10 +6,11 @@
     tools:context=".MainScreen.MainScreenProfile"
     android:background="@color/card3">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="30dp">
+        android:padding="30dp"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/logOut"
@@ -19,9 +20,19 @@
             android:background="@drawable/rounded_button"
             android:text="Logout"
             android:textColor="@color/black"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/LinkGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/rounded_button"
+            android:text="Link Google account"
+            android:textColor="@color/black"
             android:layout_centerInParent="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </FrameLayout>
