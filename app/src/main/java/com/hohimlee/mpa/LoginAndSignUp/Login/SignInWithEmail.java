@@ -56,6 +56,7 @@ public class SignInWithEmail extends AppCompatActivity {
                     checkIfEmailVerified();
                 }
                 else {
+                    Toast.makeText(SignInWithEmail.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     progressBar.dismiss();
                 }
             }

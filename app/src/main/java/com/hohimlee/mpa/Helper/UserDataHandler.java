@@ -2,15 +2,14 @@ package com.hohimlee.mpa.Helper;
 
 public class UserDataHandler {
 
-    String firstName, lastName, email, password, gender, dateOfBirth, phoneNumber;
+    String firstName, lastName, email, gender, dateOfBirth, phoneNumber;
 
     public UserDataHandler(){}
 
-    public UserDataHandler(String firstName, String lastName, String email, String password, String gender, String dateOfBirth, String phoneNumber) {
+    public UserDataHandler(String firstName, String lastName, String email, String gender, String dateOfBirth, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
@@ -39,14 +38,6 @@ public class UserDataHandler {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getGender() {

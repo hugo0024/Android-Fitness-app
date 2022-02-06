@@ -130,7 +130,7 @@ public class phoneOTP extends AppCompatActivity {
         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = rootNode.getReference("Users");
-        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, emailS, passwordS, genderS, dateS, fullPhoneNumberS);
+        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, emailS, genderS, dateS, fullPhoneNumberS);
         reference.child(user.getUid()).setValue(addNewUser);
         user.updateEmail(emailS);
     }

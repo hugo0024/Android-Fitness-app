@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.hohimlee.mpa">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginAndSignUp.Login.SignInWithEmail"></activity>
+        <activity android:name=".LoginAndSignUp.ResetPassword.EmailSentScreen"></activity>
+        <activity android:name=".LoginAndSignUp.Login.SignInWithEmail" />
         <activity android:name=".LoginAndSignUp.SignUp.EmailSentScreen" />
         <activity android:name=".MainScreen.MainScreen" />
         <activity android:name=".LoginAndSignUp.ResetPassword.ResetPassword_EmailScreen" />
@@ -30,9 +31,11 @@
         <activity android:name=".LoginAndSignUp.Login.LoginScreen" />
         <activity android:name=".MainScreen.Running" />
         <activity android:name=".SplashScreen.introduction" />
-        <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@style/ProxyTheme" tools:replace="android:theme"/>
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:theme="@style/ProxyTheme"
+            tools:replace="android:theme" />
         <activity android:name=".SplashScreen.SplashScreen">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,11 +46,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            tools:replace="android:value"
-            android:value="@string/facebook_app_id"/>
-
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"
+            tools:replace="android:value" />
     </application>
 
 </manifest>

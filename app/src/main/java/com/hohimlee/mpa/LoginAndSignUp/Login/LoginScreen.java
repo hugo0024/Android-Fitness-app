@@ -66,7 +66,7 @@ public class LoginScreen extends AppCompatActivity {
     TextInputLayout phoneNumber, password;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     GoogleSignInClient mGoogleSignInClient;
-    String googleEmailS,firstNameS, lastNameS, passwordS, genderS, dobS, phoneNumberS,EmailS;
+    String googleEmailS,firstNameS, lastNameS, genderS, dobS, phoneNumberS,EmailS;
     CallbackManager callbackManager;
     CustomProgressBar progressBar;
 
@@ -78,7 +78,6 @@ public class LoginScreen extends AppCompatActivity {
         setContentView(R.layout.activity_login_screen);
         countryCodePicker = findViewById(R.id.login_countryCodePicker);
         phoneNumber = findViewById(R.id.login_phoneNumber);
-        password = findViewById(R.id.login_password);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("780220218443-nhgqem79c548qfh13npcksaqtaoasp28.apps.googleusercontent.com")
@@ -88,6 +87,7 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     public void SignInWithFacebook(View view){
+        progressBar.show();
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email", "public_profile"));
         callbackManager = CallbackManager.Factory.create();
 
@@ -100,11 +100,13 @@ public class LoginScreen extends AppCompatActivity {
 
                     @Override
                     public void onCancel() {
+                        progressBar.dismiss();
                     }
 
                     @Override
                     public void onError(FacebookException exception) {
                         Toast.makeText(LoginScreen.this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressBar.dismiss();
                     }
                 });
     }
@@ -120,7 +122,7 @@ public class LoginScreen extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             EmailS = user.getEmail();
-                            UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, passwordS, genderS, dobS, phoneNumberS);
+                            UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, genderS, dobS, phoneNumberS);
                             FirebaseDatabase firebase = FirebaseDatabase.getInstance();
                             DatabaseReference userRef  = firebase.getReference("Users");
                             userRef.child(user.getUid()).setValue(addNewUser);
@@ -131,6 +133,7 @@ public class LoginScreen extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.dismiss();
                     }
                     }
                 });
@@ -140,6 +143,7 @@ public class LoginScreen extends AppCompatActivity {
     public void googleSingIn(View view){
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, 1);
+        progressBar.show();
     }
 
     @Override
@@ -154,8 +158,7 @@ public class LoginScreen extends AppCompatActivity {
                 firstNameS = account.getFamilyName();
                 lastNameS = account.getGivenName();
 
-
-            FirebaseDatabase firebase = FirebaseDatabase.getInstance();
+                FirebaseDatabase firebase = FirebaseDatabase.getInstance();
                 DatabaseReference userRef  = firebase.getReference("Users");
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 userRef.orderByChild("email").equalTo(googleEmailS).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -165,6 +168,7 @@ public class LoginScreen extends AppCompatActivity {
                         if(snapshot.exists()){
                             Toast.makeText(LoginScreen.this, "Account already exits, please use your original sign-in method", Toast.LENGTH_LONG).show();
                             mGoogleSignInClient.signOut();
+                            progressBar.dismiss();
 
                         }
                         else{
@@ -174,13 +178,16 @@ public class LoginScreen extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Toast.makeText(LoginScreen.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        progressBar.dismiss();
                     }
                 });
 
             } catch (ApiException e) {
+                progressBar.dismiss();
             }
         }else{
             callbackManager.onActivityResult(requestCode, resultCode, data);
+            progressBar.dismiss();
         }
     }
 
@@ -202,23 +209,27 @@ public class LoginScreen extends AppCompatActivity {
                                         Intent intent = new Intent(LoginScreen.this, MainScreen.class);
                                         startActivity(intent);
                                         finish();
+                                        progressBar.dismiss();
                                     }
                                     else{
-                                        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, passwordS, genderS, dobS, phoneNumberS);
+                                        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, genderS, dobS, phoneNumberS);
                                         userRef.child(user.getUid()).setValue(addNewUser);
                                         Intent intent = new Intent(LoginScreen.this, MainScreen.class);
                                         startActivity(intent);
                                         finish();
+                                        progressBar.dismiss();
                                     }
                                 }
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
                                     Toast.makeText(LoginScreen.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                                    progressBar.dismiss();
                                 }
                             });
 
                         } else {
                             Toast.makeText(LoginScreen.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBar.dismiss();
                         }
                     }
                 });
