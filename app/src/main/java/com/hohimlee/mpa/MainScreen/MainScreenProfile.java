@@ -1,6 +1,8 @@
 package com.hohimlee.mpa.MainScreen;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -36,21 +39,39 @@ import com.hohimlee.mpa.R;
 
 public class MainScreenProfile extends Fragment {
 
-    Button Logout_button, linkGoogleButton;
-
+    Button Logout_button;
+    SharedPreferences sp;
     FirebaseAuth mAuth  = FirebaseAuth.getInstance();
-    GoogleSignInClient mGoogleSignInClient;
+    String firstNameS, lastNameS, emailS, genderS, dateOfBirthS, phoneNumberS;
+    TextView t1,t2,t3,t4,t5,t6;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_screen_profile, container, false);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("780220218443-nhgqem79c548qfh13npcksaqtaoasp28.apps.googleusercontent.com")
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+        t1 = (TextView) view.findViewById(R.id.firstName);
+        t2 = (TextView) view.findViewById(R.id.lastName);
+        t3 = (TextView) view.findViewById(R.id.email);
+        t4 = (TextView) view.findViewById(R.id.gender);
+        t5 = (TextView) view.findViewById(R.id.dob);
+        t6 = (TextView) view.findViewById(R.id.phone);
+
+        sp = getActivity().getApplicationContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+        firstNameS = sp.getString("firstName", "");
+        lastNameS = sp.getString("lastName", "");
+        emailS = sp.getString("email", "");
+        genderS = sp.getString("gender", "");
+        dateOfBirthS = sp.getString("dateOfBirth", "");
+        phoneNumberS = sp.getString("phoneNumber", "");
+
+        t1.setText(firstNameS);
+        t2.setText(lastNameS);
+        t3.setText(emailS);
+        t4.setText(genderS);
+        t5.setText(dateOfBirthS);
+        t6.setText(phoneNumberS);
+
 
         Logout_button = (Button) view.findViewById(R.id.logOut);
         Logout_button.setOnClickListener(new View.OnClickListener() {
@@ -69,49 +90,7 @@ public class MainScreenProfile extends Fragment {
             }
         });
 
-        linkGoogleButton = (Button) view.findViewById(R.id.LinkGoogle);
-        linkGoogleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent, 1);
-            }
-        });
-
         return view;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == 1) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account.getIdToken());
-            } catch (ApiException e) {
-                // Google Sign In failed, update UI appropriately
-            }
-        }
-    }
-
-    private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
-        mAuth.getCurrentUser().linkWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(getActivity(), "Account linked", Toast.LENGTH_SHORT).show();
-
-                }
-                else{
-                    Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-    }
 }

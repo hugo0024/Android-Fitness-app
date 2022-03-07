@@ -3,10 +3,14 @@
     <color name="colorPrimary">#000</color>
     <color name="colorPrimaryDark">#192812</color>
     <color name="colorAccent">#f48f76</color>
+    <color name="colorAccent_light">#FBDDD5</color>
 
     <color name="lightWhite">#fff</color>//white (inverted)
     <color name="white">#f5f5f5</color>//light white (inverted)
     <color name="black">#000</color>
+
+    <color name="banner_background">#F1E9CE</color>
+    <color name="banner_background_light">#56F1E9CE</color>
 
     <color name="buttonAccent">#f59a83</color>
 
