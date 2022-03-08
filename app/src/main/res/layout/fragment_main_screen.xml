@@ -92,6 +92,7 @@
                     android:layout_centerInParent="true"/>
 
                 <Button
+                    android:id="@+id/running"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#00000000" />
@@ -198,7 +199,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/more"
+                android:text="Others"
                 android:textAlignment="center"
                 android:gravity="center_horizontal" />
         </LinearLayout>
@@ -208,38 +209,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:background="@color/lightWhite">
 
         <LinearLayout
             android:id="@+id/featured_background"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="300dp"
             android:background="@color/banner_background_light"
             android:orientation="vertical"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="0dp"
             android:layout_marginBottom="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="23dp"
-                android:text="Featured\nTutorials"
-                android:fontFamily="@font/muli_bold"
-                android:layout_marginTop="50dp"
-                android:textAllCaps="true"
                 android:layout_marginLeft="10dp"
-                android:textColor="@color/black"/>
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/brandon_grotesque_black"
+                android:text="New\nFeatured\nTutorials"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="23dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="Here are some useful tutorials you may want to look at"/>
+                android:text="Useful tutorials you may want to take look at"/>
 
         </LinearLayout>
 

@@ -28,9 +28,6 @@ public class SignUpScreen_2 extends AppCompatActivity {
     RadioButton selectedGender;
     DatePicker datePicker;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

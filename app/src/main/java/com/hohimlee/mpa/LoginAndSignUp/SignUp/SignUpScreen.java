@@ -65,7 +65,6 @@ public class SignUpScreen extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     Toast.makeText(SignUpScreen.this, "Email already exits", Toast.LENGTH_SHORT).show();
-
                 }
                 else{
                     intent.putExtra("FirstName", firstNameS);
@@ -79,11 +78,7 @@ public class SignUpScreen extends AppCompatActivity {
                 Toast.makeText(SignUpScreen.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
     }
-
 
     private boolean validateFirstName() {
         String val = firstName.getEditText().getText().toString().trim();

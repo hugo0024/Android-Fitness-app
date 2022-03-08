@@ -117,7 +117,6 @@ public class phoneOTP extends AppCompatActivity {
                             startActivity(intent);
 
                         } else {
-
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 Toast.makeText(phoneOTP.this, "Please Try again!", Toast.LENGTH_SHORT).show();
                             }

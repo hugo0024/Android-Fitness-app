@@ -1,5 +1,6 @@
 package com.hohimlee.mpa.MainScreen;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.hohimlee.mpa.Helper.FeaturedAdpater;
 import com.hohimlee.mpa.Helper.FeaturedHelperClass;
@@ -21,6 +23,7 @@ public class MainScreenFragment extends Fragment {
 
     RecyclerView featuredRecycler;
     RecyclerView.Adapter adapter;
+    Button running;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,6 +32,16 @@ public class MainScreenFragment extends Fragment {
 
         featuredRecycler = view.findViewById(R.id.featured_recycler);
         featuredRecycler();
+
+        running = (Button) view.findViewById(R.id.running);
+        running.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Running.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }
@@ -39,9 +52,9 @@ public class MainScreenFragment extends Fragment {
 
         ArrayList<FeaturedHelperClass> featuredLocations = new ArrayList<>();
 
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.card1workout, "1111", "asdfasd sadfasdf asdfasdf sda fasdfasd fsda f sdaf ", 1));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.card2workout, "2222", "asdfasd sadfasdf asdfasdf sda fasdfasd fsda f sdaf ",2));
-        featuredLocations.add(new FeaturedHelperClass(R.drawable.card3workout, "3333", "asdfasd sadfasdf asdfasdf sda fasdfasd fsda f sdaf ", (float) 4.5));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.confirmation_icon, "1111", "asdfasd sadfasdf asdfasdf sda fasdfasd fsda f sdaf ", 1));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.confirmation_icon, "2222", "asdfasd sadfasdf asdfasdf sda fasdfasd fsda f sdaf ",2));
+        featuredLocations.add(new FeaturedHelperClass(R.drawable.confirmation_icon, "3333", "asdfasd sadfasdf asdfasdf sda fasdfasd fsda f sdaf ", (float) 4.5));
 
         adapter = new FeaturedAdpater(featuredLocations);
         featuredRecycler.setAdapter(adapter);
