@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainScreen.MainScreenManage"
+    tools:context=".MainScreen.MainScreenHistory"
     android:background="@color/card1"
     android:orientation="vertical">
 
@@ -20,7 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/featured_background"
-            android:background="@color/card1" />
+            android:background="@color/card1"
+            android:requiresFadingEdge="horizontal|vertical"
+            android:cacheColorHint="@color/card1"/>
 
 
 

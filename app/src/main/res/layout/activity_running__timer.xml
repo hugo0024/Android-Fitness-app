@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainScreen.Running.Running_storeData"
+    tools:context=".MainScreen.Running.Running_Timer"
     android:padding="30dp"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:background="@color/lightWhite">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,7 +45,7 @@
             android:textAlignment="center"
             android:layout_height="wrap_content"
             android:fontFamily="@font/muli"
-            android:text="Congratulations, you have finished your workout"
+            android:text="Please press the stat button when you are ready"
             android:textSize="13sp"
             android:layout_centerInParent="true"
             android:layout_gravity="center"/>
@@ -55,63 +54,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="center">
+            android:layout_marginTop="100dp">
 
             <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="You have used:"
-                android:textSize="13sp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/muli" />
-
-            <TextView
-                android:id="@+id/finish_time"
+                android:id="@+id/timer_text"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00 : 00 : 00"
                 android:textSize="60sp"
                 android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/muli" />
-
-            <TextView
-                android:id="@+id/workout_to"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="to run:"
-                android:textSize="13sp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/muli" />
 
-            <TextView
-                android:id="@+id/finish_miles"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10 miles"
-                android:textSize="60sp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/muli" />
 
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/signUp_next_button"
+            android:id="@+id/start_stop_timer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:background="@drawable/rounded_button"
-            android:text="Save result"
+            android:text="Start"
             android:textColor="@color/black"
             android:transitionName="transition_next_button"
-            android:onClick="next"/>
+            android:onClick="startStopTapped"/>
+
+        <Button
+            android:id="@+id/completed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button"
+            android:text="Completed"
+            android:textColor="@color/black"
+            android:transitionName="transition_next_button"
+            android:onClick="completed"/>
 
     </LinearLayout>
+
 </RelativeLayout>

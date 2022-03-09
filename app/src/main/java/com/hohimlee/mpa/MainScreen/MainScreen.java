@@ -3,15 +3,12 @@ package com.hohimlee.mpa.MainScreen;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -36,11 +33,10 @@ public class MainScreen extends AppCompatActivity {
     String firstNameS, lastNameS, emailS, genderS, dateOfBirthS, phoneNumberS;
     SharedPreferences sp;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main_screen);
         chipNavigationBar = findViewById(R.id.bottom_nav_bar);
         chipNavigationBar.setItemSelected(R.id.bottom_nav_dashboard, true);
@@ -94,13 +90,17 @@ public class MainScreen extends AppCompatActivity {
                         fragment = new MainScreenFragment();
                         break;
                     case R.id.bottom_nav_manage:
-                        fragment = new MainScreenManage();
+                        fragment = new MainScreenHistory();
                         break;
                     case R.id.bottom_nav_profile:
                         fragment = new MainScreenProfile();
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();//.replace(R.id.fragment_container, fragment);
+                //ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right);
+                //ft.setCustomAnimations(R.anim.exit_to_right, R.anim.enter_from_right);
+                ft.replace(R.id.fragment_container, fragment);
+                ft.commit();
             }
         });
     }

@@ -82,7 +82,7 @@ public class LoginScreen extends AppCompatActivity {
         }
 
         progressBar = new CustomProgressBar(LoginScreen.this);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login_screen);
         countryCodePicker = findViewById(R.id.login_countryCodePicker);
         phoneNumber = findViewById(R.id.login_phoneNumber);

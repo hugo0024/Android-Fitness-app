@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainScreen.Running2"></activity>
+        <activity android:name=".MainScreen.RecyclerView_details"></activity>
+        <activity android:name=".MainScreen.Running.Running_Timer" />
+        <activity android:name=".MainScreen.Running.Running_finished" />
+        <activity android:name=".MainScreen.Running.Running_storeData" />
         <activity android:name=".LoginAndSignUp.ResetPassword.EmailSentScreen" />
         <activity android:name=".LoginAndSignUp.Login.SignInWithEmail" />
         <activity android:name=".LoginAndSignUp.SignUp.EmailSentScreen" />
@@ -30,7 +33,7 @@
         <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen_2" />
         <activity android:name=".LoginAndSignUp.SignUp.SignUpScreen" />
         <activity android:name=".LoginAndSignUp.Login.LoginScreen" />
-        <activity android:name=".MainScreen.Running" />
+        <activity android:name=".MainScreen.Running.Running_1" />
         <activity android:name=".SplashScreen.introduction" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"

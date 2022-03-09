@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainScreen.Running"
+    tools:context=".MainScreen.Running.Running_1"
     android:background="@color/lightWhite"
     android:padding="30dp"
     android:clipChildren="false"
@@ -25,7 +25,7 @@
         android:onClick="back"/>
 
     <TextView
-        android:id="@+id/signUp_title"
+        android:id="@+id/workout_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/muli_bold"
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="100dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/miles"
@@ -79,29 +79,6 @@
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/duration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Duration"
-            app:hintTextColor="@color/black"
-            app:boxStrokeColor="@color/black"
-            app:endIconMode="clear_text"
-            app:boxStrokeWidth="2dp"
-            android:layout_marginTop="5dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopStart="20dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/muli"
-                android:textColor="@color/black"
-                android:inputType="number"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/route"
