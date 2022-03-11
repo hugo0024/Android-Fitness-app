@@ -2,17 +2,18 @@ package com.hohimlee.mpa.Helper;
 
 public class UserDataHandler {
 
-    String firstName, lastName, email, gender, dateOfBirth, phoneNumber;
+    String firstName, lastName, email, gender, dateOfBirth, phoneNumber, signUpDate;
 
     public UserDataHandler(){}
 
-    public UserDataHandler(String firstName, String lastName, String email, String gender, String dateOfBirth, String phoneNumber) {
+    public UserDataHandler(String firstName, String lastName, String email, String gender, String dateOfBirth, String phoneNumber, String signUpDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
+        this.signUpDate = signUpDate;
     }
 
 
@@ -60,5 +61,8 @@ public class UserDataHandler {
 
     public void setPhoneNumber(String phoneNumber){this.phoneNumber = phoneNumber;}
 
+    public String getSignUpDate(){return signUpDate;};
+
+    public void setSignUpDate(String signUpDate){this.signUpDate = signUpDate;}
 
 }

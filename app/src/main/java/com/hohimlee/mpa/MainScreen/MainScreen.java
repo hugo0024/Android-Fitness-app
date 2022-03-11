@@ -30,7 +30,7 @@ public class MainScreen extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     DatabaseReference mDatabase;
-    String firstNameS, lastNameS, emailS, genderS, dateOfBirthS, phoneNumberS;
+    String firstNameS, lastNameS, emailS, genderS, dateOfBirthS, phoneNumberS, signUpDateS;
     SharedPreferences sp;
 
     @Override
@@ -57,6 +57,7 @@ public class MainScreen extends AppCompatActivity {
                 genderS = (String) snapshot.child("gender").getValue();
                 dateOfBirthS = (String) snapshot.child("dateOfBirth").getValue();
                 phoneNumberS = (String) snapshot.child("phoneNumber").getValue();
+                signUpDateS = (String) snapshot.child("signUpDate").getValue();
 
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("firstName", firstNameS);
@@ -65,6 +66,7 @@ public class MainScreen extends AppCompatActivity {
                 editor.putString("gender", genderS);
                 editor.putString("dateOfBirth", dateOfBirthS);
                 editor.putString("phoneNumber", phoneNumberS);
+                editor.putString("signUpDate", signUpDateS);
                 editor.commit();
             }
 

@@ -53,7 +53,11 @@ import com.hohimlee.mpa.SplashScreen.introduction;
 
 import java.security.MessageDigest;
 import java.sql.Array;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 import javax.security.auth.callback.Callback;
@@ -66,7 +70,7 @@ public class LoginScreen extends AppCompatActivity {
     TextInputLayout phoneNumber, password;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     GoogleSignInClient mGoogleSignInClient;
-    String googleEmailS,firstNameS, lastNameS, genderS, dobS, phoneNumberS,EmailS;
+    String googleEmailS,firstNameS, lastNameS, genderS, dobS, phoneNumberS,EmailS, signUpDate;
     CallbackManager callbackManager;
     CustomProgressBar progressBar;
 
@@ -80,6 +84,11 @@ public class LoginScreen extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        signUpDate = df.format(c);
 
         progressBar = new CustomProgressBar(LoginScreen.this);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -130,7 +139,7 @@ public class LoginScreen extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             EmailS = user.getEmail();
-                            UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, genderS, dobS, phoneNumberS);
+                            UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, genderS, dobS, phoneNumberS, signUpDate);
                             FirebaseDatabase firebase = FirebaseDatabase.getInstance();
                             DatabaseReference userRef  = firebase.getReference("Users");
                             userRef.child(user.getUid()).setValue(addNewUser);
@@ -220,7 +229,7 @@ public class LoginScreen extends AppCompatActivity {
                                         progressBar.dismiss();
                                     }
                                     else{
-                                        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, genderS, dobS, phoneNumberS);
+                                        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, EmailS, genderS, dobS, phoneNumberS, signUpDate);
                                         userRef.child(user.getUid()).setValue(addNewUser);
                                         Intent intent = new Intent(LoginScreen.this, MainScreen.class);
                                         startActivity(intent);

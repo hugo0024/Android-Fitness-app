@@ -73,7 +73,6 @@ public class SignInWithEmail extends AppCompatActivity {
             Toast.makeText(SignInWithEmail.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), MainScreen.class);
             startActivity(intent);
-            this.finish();
         }
         else
         {
@@ -82,8 +81,8 @@ public class SignInWithEmail extends AppCompatActivity {
             intent.putExtra("email", emailS);
             intent.putExtra("password", passwordS);
             startActivity(intent);
-            this.finish();
         }
+        this.finish();
     }
 
     public void goToSignUp(View view) {

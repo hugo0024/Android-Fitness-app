@@ -30,6 +30,10 @@ import com.hohimlee.mpa.MainScreen.MainScreen;
 import com.hohimlee.mpa.R;
 import com.hohimlee.mpa.Helper.UserDataHandler;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class phoneOTP extends AppCompatActivity {
@@ -37,7 +41,7 @@ public class phoneOTP extends AppCompatActivity {
     PinView pin;
     String systemCode;
     TextView title;
-    String firstNameS,lastNameS,emailS,passwordS,genderS,dateS,phoneNumberS,fullPhoneNumberS;
+    String firstNameS,lastNameS,emailS,passwordS,genderS,dateS,phoneNumberS,fullPhoneNumberS, signUpDate;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,10 @@ public class phoneOTP extends AppCompatActivity {
 
         sendPin(fullPhoneNumberS);
 
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        signUpDate = df.format(c);
     }
 
     private void sendPin(String fullPhoneNumberS) {
@@ -129,10 +137,12 @@ public class phoneOTP extends AppCompatActivity {
         FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = rootNode.getReference("Users");
-        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, emailS, genderS, dateS, fullPhoneNumberS);
+        UserDataHandler addNewUser = new UserDataHandler(firstNameS, lastNameS, emailS, genderS, dateS, fullPhoneNumberS, signUpDate);
         reference.child(user.getUid()).setValue(addNewUser);
         user.updateEmail(emailS);
     }
+
+
 
     public void nextScreen(View view){
         String code = pin.getText().toString();

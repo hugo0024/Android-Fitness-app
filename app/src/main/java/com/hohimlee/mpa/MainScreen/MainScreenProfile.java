@@ -42,8 +42,8 @@ public class MainScreenProfile extends Fragment {
     Button Logout_button;
     SharedPreferences sp;
     FirebaseAuth mAuth  = FirebaseAuth.getInstance();
-    String firstNameS, lastNameS, emailS, genderS, dateOfBirthS, phoneNumberS;
-    TextView t1,t2,t3,t4,t5,t6;
+    String firstNameS, lastNameS, emailS, genderS, dateOfBirthS, phoneNumberS, signUpDate;
+    TextView t1,t2,t3,t4,t5,t6,t7;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,6 +56,7 @@ public class MainScreenProfile extends Fragment {
         t4 = (TextView) view.findViewById(R.id.gender);
         t5 = (TextView) view.findViewById(R.id.dob);
         t6 = (TextView) view.findViewById(R.id.phone);
+        t7 = (TextView) view.findViewById(R.id.signUpDate);
 
         sp = getActivity().getApplicationContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
         firstNameS = sp.getString("firstName", "");
@@ -64,6 +65,7 @@ public class MainScreenProfile extends Fragment {
         genderS = sp.getString("gender", "");
         dateOfBirthS = sp.getString("dateOfBirth", "");
         phoneNumberS = sp.getString("phoneNumber", "");
+        signUpDate = sp.getString("signUpDate", "");
 
         t1.setText(firstNameS);
         t2.setText(lastNameS);
@@ -71,6 +73,7 @@ public class MainScreenProfile extends Fragment {
         t4.setText(genderS);
         t5.setText(dateOfBirthS);
         t6.setText(phoneNumberS);
+        t7.setText(signUpDate);
 
 
         Logout_button = (Button) view.findViewById(R.id.logOut);
