@@ -24,9 +24,18 @@
             android:requiresFadingEdge="horizontal|vertical"
             android:cacheColorHint="@color/card1"/>
 
+        <TextView
+            android:id="@+id/no_workout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You don't have any workout data available"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"/>
 
 
     </RelativeLayout>
+
+
 
 
 </LinearLayout>

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainScreen.RecyclerView_details"></activity>
+        <activity android:name=".MainScreen.Running.others"></activity>
+        <activity android:name=".MainScreen.RecyclerView_details" />
         <activity android:name=".MainScreen.Running.Running_Timer" />
         <activity android:name=".MainScreen.Running.Running_finished" />
         <activity android:name=".MainScreen.Running.Running_storeData" />

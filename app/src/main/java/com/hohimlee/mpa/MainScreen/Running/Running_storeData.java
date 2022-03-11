@@ -68,6 +68,9 @@ public class Running_storeData extends AppCompatActivity {
         else if(event.equals("Cycling")){
             workoutTo.setText("to cycle");
         }
+        else if(event.equals("Swimming")){
+            workoutTo.setText("to swim");
+        }
 
         dialog = new Dialog(this);
         dialog.setContentView(R.layout.yes_no_dialog);

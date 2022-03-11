@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,12 +40,14 @@ public class MainScreenHistory extends Fragment implements RecyclerViewInterface
     Dialog dialog;
 
     ImageView img;
-    TextView date, miles, route, duration, startTime, endTime;
+    TextView date, miles, route, duration, startTime, endTime, no_workout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_screen_manage, container, false);
+
+        no_workout = view.findViewById(R.id.no_workout);
 
         dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.show_details_dialog);
@@ -74,7 +77,19 @@ public class MainScreenHistory extends Fragment implements RecyclerViewInterface
 
         list = new ArrayList<>();
         recyclerViewAdapter = new RecyclerView_Adapter(getActivity(),list, this);
+
         recyclerView.setAdapter(recyclerViewAdapter);
+
+        recyclerViewAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onChanged() {
+                super.onChanged();
+                if(recyclerViewAdapter.getItemCount()==0){
+                    no_workout.setVisibility(View.VISIBLE);
+                    //Toast.makeText(getContext(), "No workout data available", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -93,6 +108,7 @@ public class MainScreenHistory extends Fragment implements RecyclerViewInterface
             }
         });
         // Inflate the layout for this fragment
+
         return view;
     }
 
@@ -103,6 +119,12 @@ public class MainScreenHistory extends Fragment implements RecyclerViewInterface
         }
         else if(list.get(position).getEvent().equals("Cycling")){
             img.setImageResource(R.drawable.cycling_icon);
+        }
+        else if(list.get(position).getEvent().equals("Swimming")){
+            img.setImageResource(R.drawable.swimming_icon);
+        }
+        else {
+            img.setImageResource(R.drawable.more_icon);
         }
 
         date.setText(list.get(position).getDate());

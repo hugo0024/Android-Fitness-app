@@ -43,8 +43,11 @@ public class RecyclerView_Adapter extends RecyclerView.Adapter<RecyclerView_Adap
         if (event.equals("Running")) {
             holder.img.setImageResource(R.drawable.running_icon);
         }
-        if (event.equals("Cycling")) {
+        else if (event.equals("Cycling")) {
             holder.img.setImageResource(R.drawable.cycling_icon);
+        }
+        else if (event.equals("Swimming")) {
+            holder.img.setImageResource(R.drawable.swimming_icon);
         }
         holder.event.setText(event);
         holder.date.setText(handler.getDate());

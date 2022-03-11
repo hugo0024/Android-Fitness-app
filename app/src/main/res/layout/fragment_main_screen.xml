@@ -150,13 +150,13 @@
 
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/gym_icon"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/swimming_icon"
                     android:layout_centerInParent="true"/>
 
                 <Button
-                    android:id="@+id/jogging"
+                    android:id="@+id/swimming"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/transplant_button" />
@@ -167,7 +167,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gym"
+                android:text="Swimming"
                 android:textAlignment="center"
                 android:gravity="center_horizontal" />
 

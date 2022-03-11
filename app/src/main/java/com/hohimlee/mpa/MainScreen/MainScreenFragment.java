@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.hohimlee.mpa.Helper.FeaturedAdpater;
 import com.hohimlee.mpa.Helper.FeaturedHelperClass;
 import com.hohimlee.mpa.MainScreen.Running.Running_1;
+import com.hohimlee.mpa.MainScreen.Running.others;
 import com.hohimlee.mpa.R;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class MainScreenFragment extends Fragment {
 
     RecyclerView featuredRecycler;
     RecyclerView.Adapter adapter;
-    Button running, cycling;
+    Button running, cycling, swimming, others;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +51,25 @@ public class MainScreenFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Running_1.class);
                 intent.putExtra("event", "Cycling");
+                startActivity(intent);
+            }
+        });
+
+        swimming = (Button) view.findViewById(R.id.swimming);
+        swimming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Running_1.class);
+                intent.putExtra("event", "Swimming");
+                startActivity(intent);
+            }
+        });
+
+        others = (Button) view.findViewById(R.id.others);
+        others.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), com.hohimlee.mpa.MainScreen.Running.others.class);
                 startActivity(intent);
             }
         });
