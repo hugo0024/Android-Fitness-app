@@ -10,6 +10,7 @@
 - Login/Register Using Facebook or Google Account
 - Collect User Data (Name, Gender, etc..)
 - Phone OTP Authentication (Register/Login)
+- Password Complexity Checker
 - Reset Password via Email
 
 
