@@ -6,7 +6,7 @@
 - Android Stuido - Java
   
 
-- ## Fully Functional Login/Register System:
+## Fully Functional Login/Register System:
 - Login/Register Using Facebook or Google Account
 - Collect User Data (Name, Gender, etc..)
 - Phone OTP Authentication (Register/Login)
